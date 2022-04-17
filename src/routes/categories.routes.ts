@@ -4,17 +4,17 @@ import { Category } from '../model/category';
 
 const categoriesRoutes = Router();
 
-const categories: Category[] = [];
+const categories: Category[] = []; // colocando modelo para dados do array
 
 categoriesRoutes.post('/', (request, response) => {
   const { name, description } = request.body;
 
-  const category = new Category();
+  const category = new Category()
 
-  Object.assign(category, {
+  Object.assign(category, { 
     name,
     description,
-    created_at: new Date(),
+    created_at: new Date()
   });
 
   categories.push(category);
