@@ -3,7 +3,7 @@ import { Category } from '../model/category';
 interface ICreateCategoryDTO { //DTO -> Data Transfer Object - I de interface
   name: string,
   description: string
-}
+};
 
 class CategoriesRepository {
   private categories: Category[]; //private pq só quem vai ter acesso ao categories é o repositório
@@ -25,6 +25,12 @@ class CategoriesRepository {
 
   list(): Category[] {
    return this.categories;
+  };
+
+  findByName(name: string): Category {
+    const category = this.categories.find((category) => category.name === name);
+
+    return category;
   };
 };
 
